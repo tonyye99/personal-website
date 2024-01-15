@@ -5,6 +5,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import {
+  FacebookIcon,
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
@@ -68,7 +69,7 @@ export default function About() {
               <p>
                 I’ve graduated from University of Computer Studies, Mandalay
                 with a Bachelor of Computer Science in Software Engineering in
-                2013. After my undergraduate, I moved to Yangon and started my
+                2013. After my graduation, I moved to Yangon and started my
                 career as a junior software engineer in 2017.
               </p>
               <p>
@@ -106,7 +107,7 @@ export default function About() {
               </SocialLink>
               <SocialLink
                 href="https://www.facebook.com/BatOfGothem"
-                icon={InstagramIcon}
+                icon={FacebookIcon}
                 className="mt-4"
               >
                 Follow on Facebook

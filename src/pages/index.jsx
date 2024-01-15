@@ -189,8 +189,8 @@ function Contact() {
 function Resume() {
   let resume = [
     {
-      company: 'Professy',
-      title: 'Javascript Engineer (Remote)',
+      company: 'Professy (Remote)',
+      title: 'Javascript Engineer',
       logo: logoPlanetaria,
       start: '2021',
       end: '2023',
