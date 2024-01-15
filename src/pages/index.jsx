@@ -383,8 +383,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Ye Htet Aung | Software Developer | Full Stack Developer | Web
-          Developer
+          Ye Htet Aung | Software Engineer
         </title>
         <meta
           name="description"
