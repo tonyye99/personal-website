@@ -387,7 +387,7 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="I’m Ye Htet Aung, A software engineer based in Yangon, Myanmar, specializing in
+          content="I’m Ye Htet Aung, A software engineer based in Bangkok, Thailand, specializing in
             Javascript and proficient in modern frameworks and libraries."
         />
       </Head>
@@ -422,7 +422,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            A software engineer based in Yangon, Myanmar, specializing in
+            A software engineer currently in Bangkok, Thailand, specializing in
             Javascript and proficient in modern frameworks and libraries. With a
             strong focus on building web applications, I thrive on the
             challenges of freelance work, actively exploring new technologies
