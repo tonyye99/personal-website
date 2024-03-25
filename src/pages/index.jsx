@@ -12,10 +12,8 @@ import {
   TwitterIcon,
   FacebookIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
+import logoAlgorithms from '@/images/logos/algorithms.svg'
+import logoPortfolio from '@/images/logos/portfolio.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -125,7 +123,17 @@ function Projects() {
         href: 'https://github.com/tonyye99/My-Portfolio',
         label: 'Github',
       },
-      logo: logoAnimaginary,
+      logo: logoPortfolio,
+    },
+    {
+      name: 'Path-finding Algorithms Visualizer',
+      description:
+        'A path-finding algorithm visualizer that allows you to visualize different path-finding algorithms and visualize their performance on a maze grid. Built with React and TypeScript.',
+      link: {
+        href: 'https://path-finding-alogirthms-visualizer.vercel.app',
+        label: 'Path-finding Algorithms Visualizer',
+      },
+      logo: logoAlgorithms,
     },
   ]
 
@@ -191,21 +199,18 @@ function Resume() {
     {
       company: 'Professy (Remote)',
       title: 'Javascript Engineer',
-      logo: logoPlanetaria,
       start: '2021',
       end: '2023',
     },
     {
       company: 'Myanmar Media Linkage',
       title: 'Senior Web Developer',
-      logo: logoAirbnb,
       start: '2020',
       end: '2021',
     },
     {
       company: 'Myanmar High Society',
       title: 'Web Developer',
-      logo: logoFacebook,
       start: '2018',
       end: '2020',
     },
@@ -253,7 +258,13 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="/YeHtetAung.pdf" target="_blank" download variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="/YeHtetAung.pdf"
+        target="_blank"
+        download
+        variant="secondary"
+        className="group mt-6 w-full"
+      >
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -266,7 +277,7 @@ function Photos() {
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex overflow-auto 2xl:justify-center pl-5 pr-5 gap-5 py-4 sm:gap-8">
+      <div className="-my-4 flex gap-5 overflow-auto py-4 pl-5 pr-5 sm:gap-8 2xl:justify-center">
         {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
           <div
             key={image.src}
@@ -293,7 +304,6 @@ function Freelance() {
     {
       company: 'FLAIA',
       title: 'Frontend Developer',
-      logo: logoPlanetaria,
       start: '2022',
       end: {
         label: 'Present',
@@ -304,7 +314,6 @@ function Freelance() {
     {
       company: 'StockPhotos',
       title: 'Frontend Developer',
-      logo: logoAirbnb,
       start: '2022',
       end: '2022',
       jobSuccessScore: 100,
@@ -382,9 +391,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          Ye Htet Aung | Software Engineer
-        </title>
+        <title>Ye Htet Aung | Software Engineer</title>
         <meta
           name="description"
           content="I’m Ye Htet Aung, A software engineer based in Bangkok, Thailand, specializing in
