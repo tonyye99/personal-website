@@ -113,7 +113,10 @@ function Projects() {
       name: 'TweetsGen',
       description:
         'TweetsGen is a free tool to generate tweets, threads and profile bios. It is built with Nuxt.js 3 and Naive UI and deployed on Railway.app. Its simplicity and ease of use make it a popular choice for Twitter enthusiasts.',
-      link: { href: 'https://tweetsgen.com', label: 'tweetsgen.com' },
+      link: {
+        href: 'https://tweets-gen-production.up.railway.app',
+        label: 'Website',
+      },
       logo: TweetsGenLogo,
       techStacks: [
         {
@@ -142,7 +145,7 @@ function Projects() {
         'A path-finding algorithm visualizer that allows you to visualize different path-finding algorithms and visualize their performance on a maze grid. Built with React and TypeScript.',
       link: {
         href: 'https://path-finding-alogirthms-visualizer.vercel.app',
-        label: 'Path-finding Algorithms Visualizer',
+        label: 'Website',
       },
       logo: logoAlgorithms,
       techStacks: [
@@ -157,7 +160,7 @@ function Projects() {
         'Weather Bot is crafted using Node.js, designed to seamlessly fetch weather forecasts for up to five days with pinpoint accuracy, catering to any location worldwide.',
       link: {
         href: 'https://github.com/tonyye99/weather-forecast-discord-bot',
-        label: 'A Node.js Weather Forecast Discord Bot',
+        label: 'Github and installation link',
       },
       logo: logoDiscordBot,
       techStacks: [
