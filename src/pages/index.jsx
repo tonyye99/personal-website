@@ -14,6 +14,7 @@ import {
 } from '@/components/SocialIcons'
 import logoAlgorithms from '@/images/logos/algorithms.svg'
 import logoPortfolio from '@/images/logos/portfolio.svg'
+import logoDiscordBot from '@/images/logos/robot.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -114,6 +115,11 @@ function Projects() {
         'TweetsGen is a free tool to generate tweets, threads and profile bios. It is built with Nuxt.js 3 and Naive UI and deployed on Railway.app. Its simplicity and ease of use make it a popular choice for Twitter enthusiasts.',
       link: { href: 'https://tweetsgen.com', label: 'tweetsgen.com' },
       logo: TweetsGenLogo,
+      techStacks: [
+        {
+          name: 'Nuxt.js',
+        },
+      ],
     },
     {
       name: 'Personal Website v1',
@@ -124,6 +130,11 @@ function Projects() {
         label: 'Github',
       },
       logo: logoPortfolio,
+      techStacks: [
+        {
+          name: 'Nuxt.js',
+        },
+      ],
     },
     {
       name: 'Path-finding Algorithms Visualizer',
@@ -134,6 +145,26 @@ function Projects() {
         label: 'Path-finding Algorithms Visualizer',
       },
       logo: logoAlgorithms,
+      techStacks: [
+        {
+          name: 'Next.js',
+        },
+      ],
+    },
+    {
+      name: 'A Discord Bot for forecasting weather',
+      description:
+        'Weather Bot is crafted using Node.js, designed to seamlessly fetch weather forecasts for up to five days with pinpoint accuracy, catering to any location worldwide.',
+      link: {
+        href: 'https://github.com/tonyye99/weather-forecast-discord-bot',
+        label: 'A Node.js Weather Forecast Discord Bot',
+      },
+      logo: logoDiscordBot,
+      techStacks: [
+        {
+          name: 'Node.js',
+        },
+      ],
     },
   ]
 
@@ -142,6 +173,20 @@ function Projects() {
       {projects.map((project) => (
         <Card as="li" key={project.name}>
           <Card.Logo src={project.logo} alt="" />
+          <div className="mt-5 flex items-center justify-center rounded-full border border-teal-300 py-1 px-2 font-medium">
+            {/* <div slot="avatar"> */}
+            {/*   <div className="relative m-1 my-0 mr-2 ml-0 flex h-4 w-4 items-center justify-center rounded-full bg-teal-500 text-xs"></div> */}
+            {/* </div> */}
+            {project.techStacks.map((stack) => (
+              <div
+                className="max-w-full flex-initial text-xs font-normal leading-none dark:text-white"
+                key={stack.name}
+              >
+                {stack.name}
+              </div>
+            ))}
+          </div>
+
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
             <Card.Link href={project.link.href} target="_blank">
               {project.name}
