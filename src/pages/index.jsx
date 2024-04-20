@@ -15,6 +15,7 @@ import {
 import logoAlgorithms from '@/images/logos/algorithms.svg'
 import logoPortfolio from '@/images/logos/portfolio.svg'
 import logoDiscordBot from '@/images/logos/robot.svg'
+import logoFileOrganizerScript from '@/images/logos/file-organizer-script.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -110,36 +111,6 @@ function LinkIcon(props) {
 function Projects() {
   let projects = [
     {
-      name: 'TweetsGen',
-      description:
-        'TweetsGen is a free tool to generate tweets, threads and profile bios. It is built with Nuxt.js 3 and Naive UI and deployed on Railway.app. Its simplicity and ease of use make it a popular choice for Twitter enthusiasts.',
-      link: {
-        href: 'https://tweets-gen-production.up.railway.app',
-        label: 'Website',
-      },
-      logo: TweetsGenLogo,
-      techStacks: [
-        {
-          name: 'Nuxt.js',
-        },
-      ],
-    },
-    {
-      name: 'Personal Website v1',
-      description:
-        'My first personal website, built with Nuxt.js 2 and Tailwind CSS. I had a great learning experience from this project.',
-      link: {
-        href: 'https://github.com/tonyye99/My-Portfolio',
-        label: 'Github',
-      },
-      logo: logoPortfolio,
-      techStacks: [
-        {
-          name: 'Nuxt.js',
-        },
-      ],
-    },
-    {
       name: 'Path-finding Algorithms Visualizer',
       description:
         'A path-finding algorithm visualizer that allows you to visualize different path-finding algorithms and visualize their performance on a maze grid. Built with React and TypeScript.',
@@ -166,6 +137,51 @@ function Projects() {
       techStacks: [
         {
           name: 'Node.js',
+        },
+      ],
+    },
+    {
+      name: 'File Organizer',
+      description:
+        'Built with Python to simple practice basic python skills. This automation script can organize files in the given directory by creating new folders with extension or modified dates.',
+      link: {
+        href: 'https://github.com/tonyye99/python-file-organizer',
+        label: 'Github',
+      },
+      logo: logoFileOrganizerScript,
+      techStacks: [
+        {
+          name: 'Python',
+        },
+      ],
+    },
+    {
+      name: 'TweetsGen',
+      description:
+        'TweetsGen is a free tool to generate tweets, threads and profile bios. It is built with Nuxt.js 3 and Naive UI and deployed on Railway.app. Its simplicity and ease of use make it a popular choice for Twitter enthusiasts.',
+      link: {
+        href: 'https://tweets-gen-production.up.railway.app',
+        label: 'Website',
+      },
+      logo: TweetsGenLogo,
+      techStacks: [
+        {
+          name: 'Nuxt.js',
+        },
+      ],
+    },
+    {
+      name: 'Personal Website v1',
+      description:
+        'My first personal website, built with Nuxt.js 2 and Tailwind CSS. I had a great learning experience from this project.',
+      link: {
+        href: 'https://github.com/tonyye99/My-Portfolio',
+        label: 'Github',
+      },
+      logo: logoPortfolio,
+      techStacks: [
+        {
+          name: 'Nuxt.js',
         },
       ],
     },
