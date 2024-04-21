@@ -146,7 +146,7 @@ function Projects() {
         'Built with Python to simple practice basic python skills. This automation script can organize files in the given directory by creating new folders with extension or modified dates.',
       link: {
         href: 'https://github.com/tonyye99/python-file-organizer',
-        label: 'Github',
+        label: 'Github and download link',
       },
       logo: logoFileOrganizerScript,
       techStacks: [
