@@ -19,9 +19,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
       <Link
         href={href}
         target="_blank"
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-green-400 dark:text-zinc-200 dark:hover:text-green-400"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-green-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -51,7 +51,7 @@ export default function About() {
       </Head>
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
+          <div className="mx-auto lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={portraitImage}
@@ -127,11 +127,11 @@ export default function About() {
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:ygxan18@gmail.com"
+                href="mailto:hey@yehtetaung.com"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                ygxan18@gmail.com
+                hey@yehtetaung.com
               </SocialLink>
             </ul>
           </div>

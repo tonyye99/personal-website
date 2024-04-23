@@ -3,47 +3,43 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import ImgMaze from '@/images/maze.png'
+import ImgFileOrganizer from '@/images/file-organizer.png'
+import ImgNodeDiscord from '@/images/node-discord.png'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Path-finding Algorithms Visualizer',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'A path-finding algorithm visualizer that allows you to visualize different path-finding algorithms and visualize their performance on a maze grid. Built with React and TypeScript.',
+    link: {
+      href: 'https://path-finding-alogirthms-visualizer.vercel.app',
+      label: 'Website',
+    },
+    image: ImgMaze,
+    techStacks: ['Next.js', 'DaisyUI'],
   },
   {
-    name: 'Animaginary',
+    name: 'A Discord Bot for forecasting weather',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Weather Bot is crafted using Node.js, designed to seamlessly fetch weather forecasts for up to five days with pinpoint accuracy, catering to any location worldwide.',
+    link: {
+      href: 'https://github.com/tonyye99/weather-forecast-discord-bot',
+      label: 'Github and installation link',
+    },
+    image: ImgNodeDiscord,
+    techStacks: ['Node.js', 'Discord.js'],
   },
   {
-    name: 'HelioStream',
+    name: 'File Organizer',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
-  },
-  {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'Built with Python to practice basic python skills. This automation script can organize files in the given directory by creating new folders with extension or modified dates.',
+    link: {
+      href: 'https://github.com/tonyye99/python-file-organizer',
+      label: 'Github and download link',
+    },
+    image: ImgFileOrganizer,
+    techStacks: ['Python', 'Tkinter'],
   },
 ]
 
@@ -62,35 +58,45 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Spencer Sharp</title>
+        <title>Projects - Ye Htet Aung</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Embarking on a Journey of Creativity and Learning: My Fun Little Projects"
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title="Embarking on a Journey of Creativity and Learning: My Fun Little Projects"
+        intro="These are some fun little projects I've worked on in my spare time, aiming to make a positive impact and enhance my skills. I plan to continue exploring new ideas and refining my abilities through these endeavors, all while enjoying the process of learning and creating."
       >
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
-            <Card as="li" key={project.name}>
-              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+            <Card as="li" key={project.name} className="gap-4">
+              <div className="relative z-10 flex aspect-[9/5] w-full items-center justify-center rounded-md bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image
-                  src={project.logo}
-                  alt=""
-                  className="h-8 w-8"
-                  unoptimized
+                  src={project.image}
+                  sizes="(min-width: 640px) 18rem, 11rem"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  alt={project.name}
                 />
               </div>
-              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+              <div className="flex items-center justify-center gap-2">
+                {project.techStacks.map((stack) => (
+                  <div
+                    className="z-10 max-w-full flex-initial rounded-full py-1 px-2 text-xs font-medium leading-none text-zinc-800 ring-1 ring-zinc-800/5 dark:text-zinc-200 dark:ring-white/10"
+                    key={stack}
+                  >
+                    {stack}
+                  </div>
+                ))}
+              </div>
+              <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
                 <Card.Link href={project.link.href}>{project.name}</Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
-              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+              <p className="relative z-10 mt-auto flex text-sm font-medium text-zinc-400 transition group-hover:text-green-400 dark:text-zinc-200">
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">{project.link.label}</span>
               </p>

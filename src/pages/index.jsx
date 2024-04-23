@@ -119,11 +119,7 @@ function Projects() {
         label: 'Website',
       },
       logo: logoAlgorithms,
-      techStacks: [
-        {
-          name: 'Next.js',
-        },
-      ],
+      techStacks: ['Next.js', 'DaisyUI'],
     },
     {
       name: 'A Discord Bot for forecasting weather',
@@ -134,11 +130,7 @@ function Projects() {
         label: 'Github and installation link',
       },
       logo: logoDiscordBot,
-      techStacks: [
-        {
-          name: 'Node.js',
-        },
-      ],
+      techStacks: ['Node.js', 'Discord.js'],
     },
     {
       name: 'File Organizer',
@@ -149,41 +141,7 @@ function Projects() {
         label: 'Github and download link',
       },
       logo: logoFileOrganizerScript,
-      techStacks: [
-        {
-          name: 'Python',
-        },
-      ],
-    },
-    {
-      name: 'TweetsGen',
-      description:
-        'TweetsGen is a free tool to generate tweets, threads and profile bios. It is built with Nuxt.js 3 and Naive UI and deployed on Railway.app. Its simplicity and ease of use make it a popular choice for Twitter enthusiasts.',
-      link: {
-        href: 'https://tweets-gen-production.up.railway.app',
-        label: 'Website',
-      },
-      logo: TweetsGenLogo,
-      techStacks: [
-        {
-          name: 'Nuxt.js',
-        },
-      ],
-    },
-    {
-      name: 'Personal Website v1',
-      description:
-        'My first personal website, built with Nuxt.js 2 and Tailwind CSS. I had a great learning experience from this project.',
-      link: {
-        href: 'https://github.com/tonyye99/My-Portfolio',
-        label: 'Github',
-      },
-      logo: logoPortfolio,
-      techStacks: [
-        {
-          name: 'Nuxt.js',
-        },
-      ],
+      techStacks: ['Python', 'Tkinter'],
     },
   ]
 
@@ -191,31 +149,21 @@ function Projects() {
     <>
       {projects.map((project) => (
         <Card as="li" key={project.name}>
-          <Card.Logo src={project.logo} alt="" />
-          <div className="mt-5 flex items-center justify-center rounded-full border border-teal-300 py-1 px-2 font-medium">
-            {/* <div slot="avatar"> */}
-            {/*   <div className="relative m-1 my-0 mr-2 ml-0 flex h-4 w-4 items-center justify-center rounded-full bg-teal-500 text-xs"></div> */}
-            {/* </div> */}
+          <div className="flex items-center justify-center gap-2">
             {project.techStacks.map((stack) => (
               <div
-                className="max-w-full flex-initial text-xs font-normal leading-none dark:text-white"
-                key={stack.name}
+                className="z-10 max-w-full flex-initial rounded-full py-1 px-2 text-xs font-medium leading-none text-zinc-800 ring-1 ring-zinc-800/5 dark:text-zinc-200 dark:ring-white/10"
+                key={stack}
               >
-                {stack.name}
+                {stack}
               </div>
             ))}
           </div>
 
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-            <Card.Link href={project.link.href} target="_blank">
-              {project.name}
-            </Card.Link>
+            <Card.Link href="/projects">{project.name}</Card.Link>
           </h2>
           <Card.Description>{project.description}</Card.Description>
-          <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-            <LinkIcon className="h-6 w-6 flex-none" />
-            <span className="ml-2">{project.link.label}</span>
-          </p>
         </Card>
       ))}
     </>
@@ -225,10 +173,10 @@ function Projects() {
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link
-      className="group -m-1 p-1 text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      className="group -m-1 p-1 text-zinc-800 transition hover:text-green-400 dark:text-zinc-200 dark:hover:text-green-400"
       {...props}
     >
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-teal-500" />
+      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-green-500" />
     </Link>
   )
 }
@@ -247,7 +195,8 @@ function Contact() {
       <div className="mt-3">
         <Button
           className="group mt-6 w-full"
-          href="mailto:ygxan18@gmail.com"
+          href="mailto:hey@yehtetaung.com"
+          target="_blank"
           variant="secondary"
         >
           Send a message
@@ -527,7 +476,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <Photos />
+      {/* <Photos /> */}
       <Container className="mt-24">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
