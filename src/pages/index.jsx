@@ -13,15 +13,8 @@ import {
   FacebookIcon,
 } from '@/components/SocialIcons'
 import logoAlgorithms from '@/images/logos/algorithms.svg'
-import logoPortfolio from '@/images/logos/portfolio.svg'
 import logoDiscordBot from '@/images/logos/robot.svg'
 import logoFileOrganizerScript from '@/images/logos/file-organizer-script.svg'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
-import TweetsGenLogo from '@/images/tweets-gen.png'
 import Typewriter from 'typewriter-effect'
 
 function MailIcon(props) {
@@ -285,33 +278,6 @@ function Resume() {
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex gap-5 overflow-auto py-4 pl-5 pr-5 sm:gap-8 2xl:justify-center">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 function Freelance() {
   let freelance = [
     {
@@ -476,7 +442,6 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      {/* <Photos /> */}
       <Container className="mt-24">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
