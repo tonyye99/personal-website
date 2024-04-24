@@ -4,6 +4,9 @@ import { Analytics } from '@vercel/analytics/react'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
+import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
+
 import '@/styles/tailwind.css'
 import 'focus-visible'
 
@@ -22,19 +25,27 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-6xl lg:px-8">
-          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="fixed inset-0 flex justify-center sm:px-8">
+          <div className="flex w-full max-w-6xl lg:px-8">
+            <div className="w-full bg-white bg-background ring-1 ring-zinc-100 dark:ring-zinc-300/20" />
+          </div>
         </div>
-      </div>
-      <div className="relative">
-        <Header />
-        <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
-          <Analytics />
-        </main>
-        <Footer />
-      </div>
+        <div className="relative">
+          <Header />
+          <main>
+            <Component previousPathname={previousPathname} {...pageProps} />
+            <Analytics />
+          </main>
+          <Footer />
+          <Toaster />
+        </div>
+      </ThemeProvider>
     </>
   )
 }

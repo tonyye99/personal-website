@@ -1,105 +1,62 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
-
-import { Button } from '@/components/Button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import {
+  Briefcase,
+  BriefcaseBusiness,
+  Contact,
+  Send,
+  Download,
+  Handshake,
+} from 'lucide-react'
 import {
   GitHubIcon,
   LinkedInIcon,
   TwitterIcon,
   FacebookIcon,
 } from '@/components/SocialIcons'
-import logoAlgorithms from '@/images/logos/algorithms.svg'
-import logoDiscordBot from '@/images/logos/robot.svg'
-import logoFileOrganizerScript from '@/images/logos/file-organizer-script.svg'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 import Typewriter from 'typewriter-effect'
+import { supabase } from '@/lib/supabase'
+import { useToast } from '@/components/ui/use-toast'
 
-function MailIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function BriefcaseIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function ShakeHandsIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 640 512"
-      fill="currentColor"
-      height="1em"
-      width="1em"
-      {...props}
-    >
-      <path d="M506.1 127.1c-17.97-20.17-61.46-61.65-122.7-71.1-22.5-3.354-45.39 3.606-63.41 18.21C302 60.47 279.1 53.42 256.5 56.86c-79.7 12.31-129.8 79.34-131.9 82.24-7.844 10.69-5.531 25.72 5.125 33.57a23.858 23.858 0 0014.19 4.657c7.406 0 14.69-3.375 19.38-9.782.406-.563 40.19-53.91 100.5-63.23 7.457-.961 14.98.67 21.56 4.483L227.2 168.2c-12.4 12.3-20.1 27.9-20.1 46.3 0 17.5 6.812 33.94 19.16 46.29 13.24 12.41 29.64 18.31 47.14 18.31s33.94-6.813 46.31-19.19l11.35-11.35 124.2 100.9c2.312 1.875 2.656 5.251.5 7.97l-27.69 35.75c-1.844 2.25-5.25 2.594-7.156 1.063l-22.22-18.69-26.19 27.75c-2.344 2.875-5.344 3.563-6.906 3.719-1.656.156-4.562.125-6.812-1.719l-32.41-27.66L310.7 392.3l-2.812 2.938c-5.844 7.157-14.09 11.66-23.28 12.6-9.469.813-18.25-1.75-24.5-6.782L170.3 319.8H96V128.3H0v255.6l64 .04c11.74 0 21.57-6.706 27.14-16.14h60.64l77.06 69.66C243.7 449.6 261.9 456 280.8 456c2.875 0 5.781-.125 8.656-.438 13.62-1.406 26.41-6.063 37.47-13.5l.906.813c12.03 9.876 27.28 14.41 42.69 12.78 13.19-1.375 25.28-7.032 33.91-15.35 21.09 8.188 46.09 2.344 61.25-16.47l27.69-35.75c18.47-22.82 14.97-56.48-7.844-75.01l-120.3-97.76 8.381-8.382c9.375-9.376 9.375-24.57 0-33.94-9.375-9.376-24.56-9.376-33.94 0L285.8 226.8c-6.6 6.7-18.1 6.7-24.7 0-3.312-3.282-5.125-7.657-5.125-12.31 0-4.688 1.812-9.064 5.281-12.53l85.91-87.64c7.812-7.845 18.53-11.75 28.94-10.03 59.75 9.22 100.2 62.73 100.6 63.29 3.088 4.155 7.264 6.946 11.84 8.376H544v175.1c0 17.67 14.33 32.05 31.1 32.05L640 384V128.1l-133.9-1zM48 352c-8.75 0-16-7.245-16-15.99 0-8.876 7.25-15.99 16-15.99s16 7.18 16 16.08c0 8.7-7.25 15.9-16 15.9zm544 0c-8.75 0-16-7.245-16-15.99 0-8.876 7.25-15.99 16-15.99s16 7.117 16 15.99c0 8.79-7.2 15.99-16 15.99z" />
-    </svg>
-  )
-}
-
-function LinkIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+const formSchema = z.object({
+  name: z.string().min(1, {
+    message: 'Name is required',
+  }),
+  email: z
+    .string()
+    .min(1, { message: 'Email is required' })
+    .email('This is not a valid email.'),
+  message: z.string().min(2, {
+    message: 'Message must be at least 2 characters.',
+  }),
+})
 
 function Projects() {
   let projects = [
@@ -111,7 +68,6 @@ function Projects() {
         href: 'https://path-finding-alogirthms-visualizer.vercel.app',
         label: 'Website',
       },
-      logo: logoAlgorithms,
       techStacks: ['Next.js', 'DaisyUI'],
     },
     {
@@ -122,7 +78,6 @@ function Projects() {
         href: 'https://github.com/tonyye99/weather-forecast-discord-bot',
         label: 'Github and installation link',
       },
-      logo: logoDiscordBot,
       techStacks: ['Node.js', 'Discord.js'],
     },
     {
@@ -133,7 +88,6 @@ function Projects() {
         href: 'https://github.com/tonyye99/python-file-organizer',
         label: 'Github and download link',
       },
-      logo: logoFileOrganizerScript,
       techStacks: ['Python', 'Tkinter'],
     },
   ]
@@ -166,19 +120,61 @@ function Projects() {
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link
-      className="group -m-1 p-1 text-zinc-800 transition hover:text-green-400 dark:text-zinc-200 dark:hover:text-green-400"
+      className="group -m-1 p-1 text-zinc-800 transition hover:text-primary dark:text-zinc-200"
       {...props}
     >
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-green-500" />
+      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-primary" />
     </Link>
   )
 }
 
-function Contact() {
+function ContactForm() {
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+  })
+  const { toast } = useToast()
+  const [open, setOpen] = useState(false)
+
+  async function onSubmit(values) {
+    console.log(values)
+    const { name, email, message } = values
+    try {
+      const { error } = await supabase.from('contacts').insert({
+        name,
+        email,
+        message,
+      })
+      if (error) {
+        toast({
+          variant: 'destructive',
+          title: 'Something went wrong.',
+          description: 'There was a problem with your request.',
+        })
+      }
+      toast({
+        title: 'Success',
+        description: 'Your message has been delivered!',
+      })
+      form.reset()
+      setOpen(false)
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Something went wrong.',
+        description: 'There was a problem with your request.',
+      })
+    }
+  }
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
+        <Contact />
         <span className="ml-3">Contact</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
@@ -186,15 +182,73 @@ function Contact() {
         opportunity, or just to say hi!
       </p>
       <div className="mt-3">
-        <Button
-          className="group mt-6 w-full"
-          href="mailto:hey@yehtetaung.com"
-          target="_blank"
-          variant="secondary"
-        >
-          Send a message
-          <MailIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-        </Button>
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild>
+            <Button
+              variant="outline"
+              className="flex w-full items-center justify-center"
+            >
+              Send a message
+              <Send size={14} className="ml-2" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Send a message</DialogTitle>
+            </DialogHeader>
+            <div className="mt-3">
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input placeholder="Name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input placeholder="Email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Type your message here."
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <Button type="submit" className="mr-auto">
+                    Submit
+                  </Button>
+                </form>
+              </Form>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   )
@@ -225,7 +279,7 @@ function Resume() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <BriefcaseBusiness />
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
@@ -264,15 +318,16 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button
-        href="/YeHtetAung.pdf"
-        target="_blank"
-        download
-        variant="secondary"
-        className="group mt-6 w-full"
-      >
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button variant="outline" className="mt-6 w-full">
+        <Link
+          href="/YeHtetAung.pdf"
+          className="flex items-center justify-center"
+          target="_blank"
+          download
+        >
+          Download CV
+          <Download size={14} className="ml-2" />
+        </Link>
       </Button>
     </div>
   )
@@ -302,12 +357,12 @@ function Freelance() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <Briefcase />
         <dl className="ml-3">
           <dd className="text-zinc-900 dark:text-zinc-100">Freelance</dd>
           <dd className="text-xs text-gray-700 dark:text-gray-400">
             I’m an active freelancer on{' '}
-            <span className="text-green-400">Upwork</span>
+            <span className="text-primary">Upwork</span>
           </dd>
         </dl>
       </h2>
@@ -356,11 +411,17 @@ function Freelance() {
       <Button
         href="https://www.upwork.com/freelancers/~01a6b3053fee48cea8"
         target="_blank"
-        variant="secondary"
+        variant="outline"
         className="group mt-6 w-full"
       >
-        Hire me on Upwork
-        <ShakeHandsIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+        <Link
+          href="https://www.upwork.com/freelancers/~01a6b3053fee48cea8"
+          target="_blank"
+          className="flex items-center justify-center"
+        >
+          Hire me on Upwork
+          <Handshake size={14} className="ml-2" />
+        </Link>
       </Button>
     </div>
   )
@@ -448,7 +509,7 @@ export default function Home() {
             <Projects />
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Contact />
+            <ContactForm />
             <Resume />
             <Freelance />
           </div>
