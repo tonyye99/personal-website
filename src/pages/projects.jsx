@@ -75,6 +75,29 @@ export default function Projects() {
           name="description"
           content="Embarking on a Journey of Creativity and Learning: My Fun Little Projects"
         />
+        <meta name="author" content="Ye Htet Aung" />
+        <meta property="og:title" content="Ye Htet Aung" />
+        <meta
+          property="og:description"
+          content="Ye Htet Aung's portfolio showcase projects"
+        />
+        <meta property="og:url" content="https://yehtetaung.com" />
+        <meta property="og:site_name" content="YeHtetAung" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-800x600.png"
+        />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-1800x1600.png"
+        />
+        <meta property="og:image:width" content="1800" />
+        <meta property="og:image:height" content="1600" />
+        <meta property="og:image:alt" content="Ye Htet Aung's Photo" />
+        <meta property="og:type" content="website" />
       </Head>
       <SimpleLayout
         title="Embarking on a Journey of Creativity and Learning: My Fun Little Projects"

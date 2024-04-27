@@ -46,8 +46,31 @@ export default function About() {
         <title>About - Ye Htet Aung</title>
         <meta
           name="description"
-          content="A little bit about me, Ye Htet Aung."
+          content="A little bit about me - Ye Htet Aung"
         />
+        <meta name="author" content="Ye Htet Aung" />
+        <meta property="og:title" content="Ye Htet Aung" />
+        <meta
+          property="og:description"
+          content="A summary introduction of Ye Htet Aung"
+        />
+        <meta property="og:url" content="https://yehtetaung.com" />
+        <meta property="og:site_name" content="YeHtetAung" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-800x600.png"
+        />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-1800x1600.png"
+        />
+        <meta property="og:image:width" content="1800" />
+        <meta property="og:image:height" content="1600" />
+        <meta property="og:image:alt" content="Ye Htet Aung's Photo" />
+        <meta property="og:type" content="website" />
       </Head>
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">

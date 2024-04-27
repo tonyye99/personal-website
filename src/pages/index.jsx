@@ -440,12 +440,31 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ye Htet Aung | Software Engineer</title>
+        <title>Ye Htet Aung | Homepage</title>
+        <meta name="description" content="Ye Htet Aung's homepage" />
+        <meta name="author" content="Ye Htet Aung" />
+        <meta property="og:title" content="Ye Htet Aung" />
         <meta
-          name="description"
-          content="I’m Ye Htet Aung, A software engineer based in Bangkok, Thailand, specializing in
-            Javascript and proficient in modern frameworks and libraries."
+          property="og:description"
+          content="Ye Htet Aung is a Senior Software Engineer in Web development with over six years of experience in JavaScript and TypeScript."
         />
+        <meta property="og:url" content="https://yehtetaung.com" />
+        <meta property="og:site_name" content="YeHtetAung" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-800x600.png"
+        />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta
+          property="og:image:url"
+          content="https://yehtetaung.com/myPhoto-1800x1600.png"
+        />
+        <meta property="og:image:width" content="1800" />
+        <meta property="og:image:height" content="1600" />
+        <meta property="og:image:alt" content="Ye Htet Aung's Photo" />
+        <meta property="og:type" content="website" />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
