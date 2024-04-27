@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import ImgMaze from '@/images/maze.png'
 import ImgFileOrganizer from '@/images/file-organizer.png'
 import ImgNodeDiscord from '@/images/node-discord.png'
+import ImgWordle from '@/images/wordle.png'
 
 const projects = [
   {
@@ -18,6 +19,17 @@ const projects = [
     },
     image: ImgMaze,
     techStacks: ['Next.js', 'DaisyUI'],
+  },
+  {
+    name: 'Wordle Clone',
+    description:
+      'Built with the intention of playing in unlimited rounds of Wordle 😄, this game not only satisfies a personal craving but also serves as a testament to my proactive approach to skill enhancement and passion for word games.',
+    link: {
+      href: 'https://next-wordle-clone.vercel.app/',
+      label: 'Website',
+    },
+    image: ImgWordle,
+    techStacks: ['Next.js', 'ShadcnUI'],
   },
   {
     name: 'A Discord Bot for forecasting weather',

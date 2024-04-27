@@ -3,7 +3,6 @@ import Link from 'next/link'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -69,6 +68,16 @@ function Projects() {
         label: 'Website',
       },
       techStacks: ['Next.js', 'DaisyUI'],
+    },
+    {
+      name: 'Wordle Clone',
+      description:
+        'Built with the intention of playing in unlimited rounds of Wordle 😄, this game not only satisfies a personal craving but also serves as a testament to my proactive approach to skill enhancement and passion for word games.',
+      link: {
+        href: 'https://next-wordle-clone.vercel.app/',
+        label: 'Website',
+      },
+      techStacks: ['Next.js', 'ShadcnUI'],
     },
     {
       name: 'A Discord Bot for forecasting weather',
