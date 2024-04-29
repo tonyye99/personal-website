@@ -70,6 +70,22 @@ function Projects() {
       techStacks: ['Next.js', 'DaisyUI'],
     },
     {
+      name: 'Magic Search',
+      description:
+        'A fun project that showcases the understanding of how semantic search engine works. Built with Embeddings model and vector database, also designed with ShadCn in Next.js.',
+      link: {
+        href: 'https://next-semantic-search-e2uaf0t4m-tonyyh91s-projects.vercel.app/',
+        label: 'Website',
+      },
+      techStacks: [
+        'Next.js',
+        'LangChain',
+        'Embeddings Model',
+        'PostgreSQL',
+        'Vector',
+      ],
+    },
+    {
       name: 'Wordle Clone',
       description:
         'Built with the intention of playing in unlimited rounds of Wordle 😄, this game not only satisfies a personal craving but also serves as a testament to my proactive approach to skill enhancement and passion for word games.',

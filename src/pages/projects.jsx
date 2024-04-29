@@ -7,6 +7,7 @@ import ImgMaze from '@/images/maze.png'
 import ImgFileOrganizer from '@/images/file-organizer.png'
 import ImgNodeDiscord from '@/images/node-discord.png'
 import ImgWordle from '@/images/wordle.png'
+import ImgSemantic from '@/images/semantic-search.png'
 
 const projects = [
   {
@@ -19,6 +20,23 @@ const projects = [
     },
     image: ImgMaze,
     techStacks: ['Next.js', 'DaisyUI'],
+  },
+  {
+    name: 'Magic Search',
+    description:
+      'A fun project that showcases the understanding of how semantic search engine works. Built with Embeddings model and vector database, also designed with ShadCn in Next.js.',
+    link: {
+      href: 'https://next-semantic-search-e2uaf0t4m-tonyyh91s-projects.vercel.app/',
+      label: 'Website',
+    },
+    image: ImgSemantic,
+    techStacks: [
+      'Next.js',
+      'LangChain',
+      'Embeddings Model',
+      'PostgreSQL',
+      'Vector',
+    ],
   },
   {
     name: 'Wordle Clone',
@@ -101,7 +119,7 @@ export default function Projects() {
       </Head>
       <SimpleLayout
         title="Embarking on a Journey of Creativity and Learning: My Fun Little Projects"
-        intro="These are some fun little projects I've worked on in my spare time, aiming to make a positive impact and enhance my skills. I plan to continue exploring new ideas and refining my abilities through these endeavors, all while enjoying the process of learning and creating."
+        intro="These are some fun little projects I've worked on in my spare time, aiming to make a positive impact and enhance my skills. I plan to continue exploring new ideas and refining my abilities through these endeavors, all while enjoying the process of learning and creating. Repositories can be found on my Github."
       >
         <ul
           role="list"
@@ -117,7 +135,7 @@ export default function Projects() {
                   alt={project.name}
                 />
               </div>
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex flex-wrap items-center justify-start gap-2">
                 {project.techStacks.map((stack) => (
                   <div
                     className="z-10 max-w-full flex-initial rounded-full py-1 px-2 text-xs font-medium leading-none text-zinc-800 ring-1 ring-zinc-800/5 dark:text-zinc-200 dark:ring-white/10"
