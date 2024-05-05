@@ -282,6 +282,12 @@ function ContactForm() {
 function Resume() {
   let resume = [
     {
+      company: 'BTRS (Remote)',
+      title: 'Software Engineer',
+      start: '2023',
+      end: '2024',
+    },
+    {
       company: 'Professy (Remote)',
       title: 'Javascript Engineer',
       start: '2021',
