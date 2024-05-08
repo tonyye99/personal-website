@@ -115,6 +115,16 @@ function Projects() {
       },
       techStacks: ['Python', 'Tkinter'],
     },
+    {
+      name: 'Go React Todo App',
+      description:
+        'A simple Todo App built with Go and React. This project is aimed at learning Go and React and how to integrate them together.',
+      link: {
+        href: 'https://go-react-todo-production-66dc.up.railway.app/',
+        label: 'Website',
+      },
+      techStacks: ['React', 'GoLang', 'MongoDB', 'ChakraUI'],
+    },
   ]
 
   return (

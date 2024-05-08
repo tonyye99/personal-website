@@ -8,6 +8,7 @@ import ImgFileOrganizer from '@/images/file-organizer.png'
 import ImgNodeDiscord from '@/images/node-discord.png'
 import ImgWordle from '@/images/wordle.png'
 import ImgSemantic from '@/images/semantic-search.png'
+import ImgGo from '@/images/go.png'
 
 const projects = [
   {
@@ -70,6 +71,17 @@ const projects = [
     },
     image: ImgFileOrganizer,
     techStacks: ['Python', 'Tkinter'],
+  },
+  {
+    name: 'Go React Todo App',
+    description:
+      'A simple Todo App built with Go and React. This project is aimed at learning Go and React and how to integrate them together.',
+    link: {
+      href: 'https://go-react-todo-production-66dc.up.railway.app/',
+      label: 'Website',
+    },
+    image: ImgGo,
+    techStacks: ['React', 'GoLang', 'MongoDB', 'ChakraUI'],
   },
 ]
 
