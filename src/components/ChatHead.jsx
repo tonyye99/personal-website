@@ -81,7 +81,10 @@ const ChatHead = () => {
                   'cursor-pointer',
                   isFocused ? 'text-primary' : 'text-white'
                 )}
-                onClick={() => setIsChatOpen(false)}
+                onClick={() => {
+                  setMessage('')
+                  setIsChatOpen(false)
+                }}
               />
             </div>
 
