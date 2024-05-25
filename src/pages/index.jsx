@@ -36,11 +36,11 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import Typewriter from 'typewriter-effect'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import Typewriter from 'typewriter-effect'
 import { supabase } from '@/lib/supabase'
 import { useToast } from '@/components/ui/use-toast'
 
@@ -131,7 +131,7 @@ function Projects() {
     <>
       {projects.map((project) => (
         <Card as="li" key={project.name}>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-start gap-2">
             {project.techStacks.map((stack) => (
               <div
                 className="z-10 max-w-full flex-initial rounded-full py-1 px-2 text-xs font-medium leading-none text-zinc-800 ring-1 ring-zinc-800/5 dark:text-zinc-200 dark:ring-white/10"

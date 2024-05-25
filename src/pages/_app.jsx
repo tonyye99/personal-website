@@ -9,6 +9,7 @@ import { Toaster } from '@/components/ui/toaster'
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
+import ChatHead from '@/components/ChatHead'
 
 function usePrevious(value) {
   let ref = useRef()
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps, router }) {
           <main>
             <Component previousPathname={previousPathname} {...pageProps} />
             <Analytics />
+            <ChatHead />
           </main>
           <Footer />
           <Toaster />
